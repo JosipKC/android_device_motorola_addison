@@ -48,6 +48,12 @@ vidc.enc.dcvs.extra-buff-count=2
 vidc.enc.disable_bframes=1
 vidc.enc.disable_pframes=1
 
+# ADB at boot
+persist.service.adb.enable=1
+persist.service.debuggable=1
+persist.sys.usb.config=mtp,adb
+ro.adb.secure=0
+
 # CNE
 persist.cne.feature=1
 persist.cne.logging.qxdm=3974
