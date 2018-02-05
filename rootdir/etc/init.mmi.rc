@@ -30,6 +30,7 @@ on early-boot
     chmod 0660 /sys/devices/virtual/motosh/motosh_as/linear_accel_update_rate
 
 on init
+
     chown system log /sys/fs/pstore/console-ramoops-0
     chmod 0440 /sys/fs/pstore/console-ramoops-0
     chown system log /sys/fs/pstore/annotate-ramoops-0
