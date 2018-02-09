@@ -25,6 +25,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 # AIDs and CAPS
 TARGET_FS_CONFIG_GEN := \
     $(DEVICE_PATH)/fs_config/mot_aids.txt \
+    $(DEVICE_PATH)/fs_config/qcom_aids.txt \
     $(DEVICE_PATH)/fs_config/file_caps.txt
 
 # Platform
