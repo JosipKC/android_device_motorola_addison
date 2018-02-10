@@ -1,0 +1,25 @@
+[
+  {
+    "remote": "github",
+    "repository":  "Alberto97/android_kernel_motorola_msm8953",
+    "target_path": "kernel/motorola/msm8953",
+    "branch": "oreo-mr1"
+  },
+  {
+    "remote": "github",
+    "repository": "JosipKC/proprietary_vendor_motorola_addison",
+    "target_path": "vendor/motorola/",
+    "branch": "8.1-addison"
+  },
+  {"remote": "github",
+    "repository": "LineageOS/android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings",
+    "branch": "staging/lineage-15.1"
+  },
+  {"remote": "github",
+    "repository": "LineageOS/android_external_bson",
+    "target_path": "external_bson",
+    "branch": "cm-14.1"
+  }
+]
+
