@@ -26,6 +26,9 @@ PRODUCT_NAME := validus_addison
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 
+# Maintainer info
+PRODUCT_BUILD_PROP_OVERRIDES += DEVICE_MAINTAINERS="Josip Kelečić (DeHuMaNiZeD)"
+
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
