@@ -23,7 +23,7 @@ BOARD_VENDOR := motorola-qcom
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # SHIMS
-TARGET_LD_SHIM_LIBS := /system/bin/adspd|libshim_adsp.so:/system/lib64/libandroid.so|libshim_ril.so:/system/vendor/lib64/libizat_core.so|libshims_get_process_name.so:/system/vendor/lib/libmdmcutback.so|libqsap_shim.so:/system/vendor/lib64/libmdmcutback.so|libqsap_shim.so
+TARGET_LD_SHIM_LIBS := /system/bin/adspd|libshim_adsp.so:/system/lib64/libandroid.so|libshim_ril.so:/system/vendor/lib64/libizat_core.so|libshims_get_process_name.so:/system/vendor/lib64/libmdmcutback.so|libqsap_shim.so
 
 
 # AIDs and CAPS
