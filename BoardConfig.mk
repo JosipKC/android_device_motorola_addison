@@ -148,11 +148,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
-# Shim
-TARGET_LD_SHIM_LIBS := \
-    /system/lib64/libandroid.so|libshim_ril.so \
-    /system/lib64/libmdmcutback.so|libqsap_shim.so
-
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn
