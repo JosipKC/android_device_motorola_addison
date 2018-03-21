@@ -16,6 +16,9 @@
 
 $(call inherit-product, device/motorola/addison/full_addison.mk)
 
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 1920
