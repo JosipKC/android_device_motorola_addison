@@ -1,0 +1,45 @@
+
+[
+  {
+    "remote": "github",
+    "repository": "Alberto97/android_kernel_motorola_msm8953",
+    "target_path": "kernel/motorola/msm8953",
+    "revision": "oreo-mr1"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_hardware_qcom_display-caf-msm8996",
+    "target_path": "hardware/qcom/display-caf-msm8996",
+    "revision": "android-8.1"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_hardware_qcom_audio-caf-msm8996",
+    "target_path": "hardware/qcom/audio-caf-msm8996",
+    "revision": "android-8.1"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_hardware_qcom_media-caf-msm8996",
+    "target_path": "hardware/qcom/media-caf-msm8996",
+    "revision": "android-8.1"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_device_qcom_caf-sepolicy",
+    "target_path": "device/qcom/sepolicy",
+    "revision": "android-8.1"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_vendor_qcom_opensource_interfaces",
+    "target_path": "vendor/qcom/opensource/interfaces",
+    "revision": "android-8.1"
+  },
+  {
+    "remote": "github",
+    "repository": "JosipKC/proprietary_vendor_motorola",
+    "target_path": "vendor/motorola",
+    "revision": "android-8.1"
+  }
+]
