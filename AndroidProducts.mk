@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/validus_addison.mk
+    $(LOCAL_DIR)/tipsy_addison.mk
