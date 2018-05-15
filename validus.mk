@@ -18,7 +18,7 @@ $(call inherit-product, device/motorola/addison/full_addison.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := addison
-PRODUCT_NAME := aosp_addison
+PRODUCT_NAME := validus_addison
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 
