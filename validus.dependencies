@@ -1,0 +1,22 @@
+[
+  {
+    "repository": "Alberto97/proprietary_vendor_motorola",
+    "target_path": "vendor/motorola",
+    "branch": "oreo-mr1-addison"
+  },
+  {
+    "repository": "Alberto97/android_kernel_motorola_msm8953",
+    "target_path": "kernel/motorola/msm8953",
+    "branch": "oreo-mr1"
+  },
+  {
+    "repository": "LineageOS/android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings",
+    "branch": "lineage-15.1"
+  },
+  { 
+    "repository": "Alberto97/hardware-moto-sensors",
+    "target_path": "hardware/moto/sensors",
+    "branch": "oreo-mr1"
+  }
+]
