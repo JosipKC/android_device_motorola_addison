@@ -148,11 +148,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
-# Shim
-TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib64/libmdmcutback.so|libqsap_shim.so \
-    /system/vendor/lib64/libsensorndkbridge.so|libshim_ril.so
-
 # Sensors
 BOARD_USES_MOT_SENSOR_HUB := true
 MOT_AP_SENSOR_HW_REARPROX := true
