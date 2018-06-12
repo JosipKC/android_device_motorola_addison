@@ -16,6 +16,9 @@
 
 $(call inherit-product, device/motorola/addison/full_addison.mk)
 
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := addison
 PRODUCT_NAME := omni_addison
