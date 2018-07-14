@@ -85,6 +85,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
+    android.hardware.audio@2.0-service \
     android.hardware.audio.effect@2.0-impl \
     audiod \
     audio.a2dp.default \
@@ -95,7 +96,6 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libqcompostprocbundle \
-    libshim_adsp \
     tinymix
 
 PRODUCT_COPY_FILES +=  \
@@ -119,21 +119,26 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    android.hidl.manager@1.0 \
-    libbson
+    Snap
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/msm8953_mot_camera.xml:system/etc/camera/msm8953_mot_camera.xml \
     $(LOCAL_PATH)/configs/camera/ov5693_chromatix.xml:system/etc/camera/ov5693_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/ov16860_chromatix.xml:system/etc/camera/ov16860_chromatix.xml
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
     android.hardware.renderscript@1.0-impl \
     gralloc.msm8953 \
     hwcomposer.msm8953 \
@@ -164,21 +169,21 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
     libgnsspps \
-    gps.msm8953 \
-    libshims_get_process_name
+    libgnss \
+    android.hardware.gnss@1.0-impl-qti
 
 # HIDL
 PRODUCT_PACKAGES += \
-    android.hidl.base@1.0
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+    $(LOCAL_PATH)/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
 
 # IRSC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+    $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -211,14 +216,20 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
+# Net
+PRODUCT_PACKAGES += \
+    android.system.net.netd@1.0 \
+    libandroid_net \
+    netutils-wrapper-1.0
+
 # NFC
 PRODUCT_COPY_FILES += \
     frameworks/base/nfc-extras/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
-    $(LOCAL_PATH)/configs/libnfc-nxp_ds.conf:system/etc/libnfc-nxp_ds.conf \
+    $(LOCAL_PATH)/configs/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
+    $(LOCAL_PATH)/configs/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
+    $(LOCAL_PATH)/configs/libnfc-nxp_ds.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp_ds.conf \
 
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \
@@ -260,7 +271,9 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    libqsap_shim \
     librmnetctl \
+    libsensorndkbridge \
     libshim_ril \
     libxml2
 
@@ -271,10 +284,10 @@ PRODUCT_COPY_FILES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
-    sensorservice_32
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+    libsensorhub \
+    motosh \
+    sensorhub.msm8953 \
+    sensors.msm8953
 
 # Thermal
 PRODUCT_COPY_FILES += \
@@ -290,7 +303,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator HAL
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
+    android.hardware.vibrator@1.0-service.addison
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -316,3 +329,4 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, vendor/validus/config/common_full_phone.mk)

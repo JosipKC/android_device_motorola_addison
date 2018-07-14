@@ -17,6 +17,8 @@ ifneq ($(filter addison,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
+include $(CLEAR_VARS)
+
 FIRMWARE_ADSP_IMAGES := \
     adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 \
     adsp.b07 adsp.b08 adsp.b09 adsp.b10 adsp.b11 adsp.b12 adsp.b13 \
@@ -85,6 +87,44 @@ $(FIRMWARE_WIDEVINE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_WIDEVINE_SYMLINKS)
+
+RFS_MSM_ADSP_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/msm/adsp/
+$(RFS_MSM_ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating RFS MSM ADSP folder structure: $@"
+	@rm -rf $@/*
+	@mkdir -p $(dir $@)/readonly/vendor
+	$(hide) ln -sf /data/vendor/tombstones/rfs/lpass $@/ramdumps
+	$(hide) ln -sf /persist/rfs/msm/adsp $@/readwrite
+	$(hide) ln -sf /persist/rfs/shared $@/shared
+	$(hide) ln -sf /persist/hlos_rfs/shared $@/hlos
+	$(hide) ln -sf /firmware $@/readonly/firmware
+	$(hide) ln -sf /vendor/firmware $@/readonly/vendor/firmware
+
+RFS_MSM_MPSS_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/msm/mpss/
+$(RFS_MSM_MPSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating RFS MSM MPSS folder structure: $@"
+	@rm -rf $@/*
+	@mkdir -p $(dir $@)/readonly/vendor
+	$(hide) ln -sf /data/vendor/tombstones/rfs/modem $@/ramdumps
+	$(hide) ln -sf /persist/rfs/msm/mpss $@/readwrite
+	$(hide) ln -sf /persist/rfs/shared $@/shared
+	$(hide) ln -sf /persist/hlos_rfs/shared $@/hlos
+	$(hide) ln -sf /firmware $@/readonly/firmware
+	$(hide) ln -sf /fsg $@/readonly/fsg
+	$(hide) ln -sf /vendor/firmware $@/readonly/vendor/firmware
+
+RFS_MSM_SLPI_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/msm/slpi/
+$(RFS_MSM_SLPI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating RFS MSM SLPI folder structure: $@"
+	@rm -rf $@/*
+	@mkdir -p $(dir $@)/readonly
+	$(hide) ln -sf /data/vendor/tombstones/rfs/slpi $@/ramdumps
+	$(hide) ln -sf /persist/rfs/msm/slpi $@/readwrite
+	$(hide) ln -sf /persist/rfs/shared $@/shared
+	$(hide) ln -sf /persist/hlos_rfs/shared $@/hlos
+	$(hide) ln -sf /firmware $@/readonly/firmware
+
+ALL_DEFAULT_INSTALLED_MODULES += $(RFS_MSM_ADSP_SYMLINKS) $(RFS_MSM_MPSS_SYMLINKS) $(RFS_MSM_SLPI_SYMLINKS)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

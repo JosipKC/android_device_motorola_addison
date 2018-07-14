@@ -16,25 +16,20 @@
 
 LOCAL_PATH := $(call my-dir)
 
-# ADSP
-include $(CLEAR_VARS)
-LOCAL_C_INCLUDES := external/tinyalsa/include
-LOCAL_SRC_FILES := mixer.c
-LOCAL_MODULE := libshim_adsp
-LOCAL_MODULE_TAGS := optional
-include $(BUILD_SHARED_LIBRARY)
-
 # RIL
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := sensor.cpp
-LOCAL_SHARED_LIBRARIES := libsensor
+LOCAL_SRC_FILES := ASensorManager.cpp
+LOCAL_SHARED_LIBRARIES := android.hardware.sensors@1.0
+LOCAL_STATIC_LIBRARIES := android.hardware.sensors@1.0-convert
 LOCAL_MODULE := libshim_ril
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
-# GPS
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := get_process_name.c
-LOCAL_MODULE := libshims_get_process_name
+LOCAL_SRC_FILES := libqsap_shim.c
+LOCAL_SHARED_LIBRARIES := libqsap_sdk liblog
+LOCAL_C_INCLUDES := $(TOP)/system/qcom/softap/sdk
+LOCAL_MODULE := libqsap_shim
 LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
